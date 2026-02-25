@@ -1,5 +1,5 @@
 # Ex.No:1(A) INTRODUCTION TO JAVA PROGRAMMING, DATA TYPES, VARIABLES AND OPERATORS
-## Date: 29.01.2026
+## Date: 30.01.2026
 ## QUESTION:
 
 Lovely is learning java basics, can you teach her the different types of datatypes in java? Write a program that uses all datatypes and print them all.
@@ -29,8 +29,8 @@ To understand and demonstrate the basic data types in Java by declaring variable
 6. End the program.
 
 ## PROGRAM:
-#### Developed by: NETHRAA N
-#### RegisterNumber:  212224040217
+#### Developed by: YUVASHREE R
+#### RegisterNumber:  212224040378
 
 ## Sourcecode.java:
 ```
@@ -71,6 +71,7 @@ public class AllDataTypes
 ## RESULT:
 
 Thus, the Java program was successfully written and executed to demonstrate the use of all primitive and non-primitive data types. The values of each data type were displayed correctly, and the objective of understanding Java data types, variables, and basic operations was achieved.
+
 
 
 
