@@ -1,117 +1,62 @@
-# Ex.No:4(E) DESIGN PATTERN  ---- BEHAVIOUR PATTERN
-## Date: 26.02.2026
+# Ex.No:5(A) INPUTSTREAMREADER 
+## Date: 04.03.2026
 ## QUESTION:
-Create a program that sends different types of notifications: "email", "sms", and "push". Use the Factory Pattern to generate the appropriate notification sender and call its notifyUser() method.
-
-
+Write a program to demonstrate chaining of streams (BufferedReader on top of InputStreamReader on top of System.in)
+<img width="296" height="175" alt="image" src="https://github.com/user-attachments/assets/55523e5e-80b1-4fdd-9556-350840f0033c" />
 
 ## AIM:
-To write a Java program that demonstrates a Behavioral Pattern using the Factory Method, allowing different notification types to send messages through a common interface.
+To write a Java program that demonstrates stream chaining by connecting System.in → InputStreamReader → BufferedReader to read user input and display the entered details.
 
 ## ALGORITHM :
-1.	Start the program.
-2.	Import the necessary package 'java.util'
-3.	Create an interface Notification with method notifyUser().
-4. Implement concrete classes: EmailNotification, SMSNotification, and PushNotification.
-5. Create a NotificationFactory that returns the appropriate object based on user input.
-6. In main(), get the notification type from the user.
-7. Call the notifyUser() method of the returned object.
-8. If no valid type is provided, display an error.
-9. Stop the program.
+1. Start the program.
 
+2. Import the necessary I/O packages (java.io.*).
 
+3. Create a BufferedReader object by chaining System.in → InputStreamReader → BufferedReader.
 
+4. Read the user's name using the readLine() method.
 
+5. Read the user's age using the readLine() method.
+
+6. Display the collected user details (name and age).
+
+7. Handle any IOException that may occur during input operations.
 
 ## PROGRAM:
  ```
-/*
-Program to implement a Behaviour Pattern using Java
+Program to implement a InputStreamReader using Java
 Developed by: YUVASHREE R
-RegisterNumber:21222404378
-*/
+RegisterNumber:2122224040378
 ```
 
 ## SOURCE CODE:
 ```
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
-interface Notification {
-    void notifyUser();
-}
-
-// ===== Concrete Notifications =====
-class EmailNotification implements Notification {
-    public void notifyUser() {
-        System.out.println("Sending Email Notification");
-    }
-}
-
-class SMSNotification implements Notification {
-    public void notifyUser() {
-        System.out.println("Sending SMS Notification");
-    }
-}
-
-class PushNotification implements Notification {
-    public void notifyUser() {
-        System.out.println("Sending Push Notification");
-    }
-}
-
-// ===== Factory =====
-class NotificationFactory {
-    public Notification createNotification(String type) {
-        if (type == null) return null;
-        switch (type.toLowerCase()) {
-            case "email":
-                return new EmailNotification();
-            case "sms":
-                return new SMSNotification();
-            case "push":
-                return new PushNotification();
-            default:
-                return null;
-        }
-    }
-}
-
-// ===== Main =====
-public class Main {
+public class ChainingStreamsExample {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        NotificationFactory factory = new NotificationFactory();
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        while (true) {
-            String input = sc.nextLine().trim();
-            if (input.equalsIgnoreCase("exit")) break;
+        try {
+            String name = br.readLine();
+            String age = br.readLine();
 
-            Notification n = factory.createNotification(input);
-            if (n != null) {
-                n.notifyUser();
-            } else {
-                System.out.println("Invalid notification type: " + input);
-            }
+            System.out.println("--- User Details ---");
+            System.out.println("Name: " + name);
+            System.out.println("Age: " + age);
+        } catch (IOException e) {
+            System.out.println("Error reading input");
         }
-
-        sc.close();
     }
 }
 ```
 
-
-
-
-
-
 ## OUTPUT:
+<img width="631" height="496" alt="image" src="https://github.com/user-attachments/assets/eab75048-8fc2-4f89-885e-bf2ccf76e182" />
 
-![java45](https://github.com/ABINAYA-27-76/19AI307_ODD-25-26-/blob/c6316a5904f4a174dd995f6b7d7c47b65f677921/19AI307_JAVA(25-26)/Module-04/DAY-5/java45.png)
+
 
 ## RESULT:
-Thus, the program demonstrating the Behavioral Pattern using Factory Method to generate different notification types was successfully implemented and executed.
-
-
-
-
-
+The program successfully demonstrates chaining of input streams using BufferedReader and InputStreamReader. It reads the user's name and age from the console and displays them without errors.
